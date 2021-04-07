@@ -18,17 +18,6 @@ export default function NewUserForm() {
             alert('Cadastrado com sucesso')
         }, 1000)
     }
-
-    useEffect(async () => {
-        if(formRef.current.getFieldValue('CEP') == null){
-            return ''
-        }else{
-            let value = formRef.current.getFieldValue('CEP')
-            const dados = await viaCEP.get(`${value}/json`)
-            console.log(dados)
-
-        }
-    }, [ formRef.current.getFieldValue('CEP')])
   return (
     <>
     <Form className={classes.form} onSubmit={handleSubmit} ref={formRef}>
